@@ -1,57 +1,63 @@
 
 import './App.css';
 import React, {useState} from 'react';
+import CurrentWeather from './components/CurrentWeather';
+import HourlyForecast from './components/Hourlyforecast';
+import DailyForecast from './components/Dailyforecast';
 
-const api = {
-    key: 'b1e1d660348fd1a49f685e5d062e6269',
+  const api = {
+   key: 'b1e1d660348fd1a49f685e5d062e6269',
   base: "https://api.openweathermap.org/data/2.5/",
 }
 
 function App() {
 
-  const [search, setSearch] = useState("")
-  const [weather, setWeather] = useState({});
-  const searchPressed = () =>{
-  // fetch('https://api.openweathermap.org/data/2.5/forecast?q=London&appid=b1e1d660348fd1a49f685e5d062e6269')
+  const [Location, setLocation] = useState("")
+  const [weatherData, setWeatherData] = useState(null);
+  const [ForecastData, setForecastData] =useState(null);
+
+  const handleLocationChange = (event) =>{
+    setLocation(event.target.value);
+  };
+  const handleSearch = () => {
+    // Call the weather API with the user's location
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${Location}&units=metric&appid=b1e1d660348fd1a49f685e5d062e6269`)
+      .then(response => response.json())
+      .then(data => setWeatherData(data));
+
+    // Call the forecast API with the user's location
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${Location}&units=metric&appid=b1e1d660348fd1a49f685e5d062e6269`)
+      .then(response => response.json())
+      .then(data => setForecastData(data));
+  };
+  //const searchPressed = () =>{
+   //fetch('https://api.openweathermap.org/data/2.5/forecast?q=London&appid=b1e1d660348fd1a49f685e5d062e6269')
     //.then((response)=>response.json())
     //.then((result) => {
-     //console.log(result);
+     //setWeather(result);
     //}
    //)
 
     
   return (
-    <div className="App">
-      <header className='heading'>
-      <h1>Weather Forecast</h1>
-     {/*Search */}
-     <div>
-
-     <input type="text" placeholder='Enter City/Town'  onChange={(e) => setSearch(e.target.value)}/> 
-     <button onClick={searchPressed}> Search</button>
-
-
-     </div>
-     <div className="list-items">
-     
-
-     </div>
-     
-     
     
-      {/*Location*/}
-     <p>{weather.name}</p>
-
-     {/*Temperature*/}
-     <p>{weather.main.temp}</p>
-
-      {/*Conditon*/}
-      <p>{weather.main[0].main}</p>
-
-      </header>
+      <div className="App">
+        <h1>Weather App</h1>
+        <input
+          type="text"
+          value={location}
+          onChange={handleLocationChange}
+          placeholder="Enter your location"
+        />
+        <button onClick={handleSearch}>Search</button>
+        {weatherData && (
+          <div>
+            <CurrentWeather weatherData={weatherData} />
+            <HourlyForecast forecastData={ForecastData} />
+            <DailyForecast forecastData={ForecastData} />
+          </div>
+        )}
       </div>
-  );
-}
-}
-
+    );
+  }
 export default App;
