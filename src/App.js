@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-import weather from './components/weather';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import WeatherScr from './components/WeatherScr';
+import './index.css';
+import Registration from './components/Registration';
+import { createContext,useState } from 'react';
+import LogIn from './components/LogIn';
+
+export const AuthContext = createContext();
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+
+    <BrowserRouter>
+    <Routes>
+    <Route index element={<Registration />} />
+    <Route path="/logIn" element={<LogIn />} />
+    <Route path="/registration" element={<Registration />} />
+    <Route path="/WeatherScr" element={<WeatherScr />} />
+
+
+    </Routes>
+
+
+    </BrowserRouter>
+
+
   );
 }
 
