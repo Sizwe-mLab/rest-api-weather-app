@@ -1,23 +1,28 @@
 .App {
   text-align: center;
-  background-color: rgb(161, 161, 161);
+  background-color: rgba(146, 148, 143, 0.863);
   height: 900px;
   
 }
 
 input[type="text"] {
-  width: 50%;
-  height: 30px;
+  width: 400px;
+  height: 10px;
   font-size: 18px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #c9c0c0;
   border-radius: 5px;
 }
 
-button {
+ .search-btn{
   width: 100px;
   height: 30px;
   font-size: 18px;
   padding: 10px;
   border: none;
+  margin-left: 10px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgb(11, 12, 12);
+  color: white;
 }

@@ -9,7 +9,7 @@ const Hourlyforecast = ({ forecastData }) => {
     <div>
       <h2>Hourly Forecast</h2>
       <ul>
-        {forecastData.list.slice(0, 12).map((item) => (
+        {forecastData.list.slice(0, 4).map((item) => (
           <li key={item.dt}>
             <p>{new Date(item.dt * 1000).toLocaleTimeString()}</p>
             <p>Temperature: {item.main.temp}°C</p>

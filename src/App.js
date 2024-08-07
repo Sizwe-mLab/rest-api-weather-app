@@ -4,6 +4,9 @@ import React, {useState} from 'react';
 import CurrentWeather from './components/CurrentWeather';
 import HourlyForecast from './components/Hourlyforecast';
 import DailyForecast from './components/Dailyforecast';
+//import Login from './components/Login.js';
+//import Signup from './components/Sign.js';
+
 
   const api = {
    key: 'b1e1d660348fd1a49f685e5d062e6269',
@@ -11,6 +14,7 @@ import DailyForecast from './components/Dailyforecast';
 }
 
 function App() {
+  
 
   const [Location, setLocation] = useState("")
   const [weatherData, setWeatherData] = useState(null);
@@ -42,14 +46,16 @@ function App() {
   return (
     
       <div className="App">
-        <h1>Weather App</h1>
+        
+        <h1>Weather Forecast</h1>
+        
         <input
           type="text"
-          value={location}
+          
           onChange={handleLocationChange}
           placeholder="Enter your location"
         />
-        <button onClick={handleSearch}>Search</button>
+        <button className='search-btn' onClick={handleSearch}>Search</button>
         {weatherData && (
           <div>
             <CurrentWeather weatherData={weatherData} />
