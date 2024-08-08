@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import './LogIn.css';
 import { useNavigate } from "react-router-dom";
 import {AuthContext} from '../App';
 import { useContext } from 'react';
+
+
+
 
 const LogIn = () => {
     const navigate = useNavigate();
@@ -23,7 +27,7 @@ const LogIn = () => {
 
     const validateForm = () => {
 
-        let user = JSON.parse(localStorage.getItem('user')) || [];
+        let user = JSON.parse(localStorage.getItem('users')) || [];
         let userpassword = user[0].password;
         let userName = user[0].username;
         let errors = {};
@@ -58,7 +62,7 @@ const LogIn = () => {
             if(user) {
                 setAuth(formData.username);
                 localStorage.setItem('auth',formData.username);
-                navigate('/Home');
+                navigate('/WeatherScr');
             }else{
                 setErrors({general:"Invalied Username or Password"});
             }

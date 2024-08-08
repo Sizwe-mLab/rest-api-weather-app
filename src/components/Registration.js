@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Registration.css';
 import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
@@ -44,7 +45,7 @@ const Registration = () => {
             let users =JSON.parse(localStorage.getItem('users')) || [];
             users.push(formData);
             console.log("users to be stored:",users);
-            localStorage.setItem('user', JSON.stringify(users));
+            localStorage.setItem('users', JSON.stringify(users));
             navigate('/LogIn');
         }
     };

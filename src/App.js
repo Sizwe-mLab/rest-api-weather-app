@@ -1,33 +1,36 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
-import WeatherScr from './components/WeatherScr';
-import './index.css';
-import Registration from './components/Registration';
-import { createContext,useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import './App.css';
 import LogIn from './components/LogIn';
+import WeatherScr from './components/WeatherScr';
+import Registration from './components/Registration';
+import { createContext , useState } from 'react';
 
 export const AuthContext = createContext();
 
 
 function App() {
-  return (
-    
+    const [auth, setAuth] = useState(localStorage.getItem('auth') || null);
 
-    <BrowserRouter>
-    <Routes>
-    <Route index element={<Registration />} />
-    <Route path="/logIn" element={<LogIn />} />
-    <Route path="/registration" element={<Registration />} />
-    <Route path="/WeatherScr" element={<WeatherScr />} />
-
-
-    </Routes>
-
-
-    </BrowserRouter>
-
-
-  );
+    const PrivateRoute = ({ element }) => {
+        return auth ? element : <Navigate to="/login" />;
+    };
+        
+    return (
+        <AuthContext.Provider value={{auth,setAuth}}>
+           
+            <BrowserRouter>
+                <Routes>
+                <Route index element={<Registration />} />
+                    <Route path="/login" element={<LogIn />} />
+                    <Route path="/registration" element={<Registration />} />
+                    <Route path="/WeatherSrc" element={<PrivateRoute element={<WeatherScr />} />} />
+                </Routes>
+            </BrowserRouter>
+            </AuthContext.Provider>
+    );
 }
 
 export default App;
+
+

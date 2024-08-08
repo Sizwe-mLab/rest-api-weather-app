@@ -14,7 +14,14 @@
    gap:12px;
 }
 
-.search-bar input{
+.search{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding-left: 130px;
+}
+
+.search-bar input {
   height: 50px;
   border: none;
   outline: none;
@@ -31,7 +38,7 @@
 
 .temperature{
   color: #fff;
-  font-size: 80px;
+  font-size: 130px;
   line-height: 1;
 }
 .location{

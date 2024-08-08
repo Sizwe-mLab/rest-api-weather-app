@@ -1,0 +1,46 @@
+.Reg1{
+    
+     
+  background-image: linear-gradient(45deg, #2f4680, #500ae400);  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  
+
+}
+
+.btn{
+    background-color: rgb(43, 86, 103);
+    border-radius: 15px;
+    height: 3ch;
+    width: 100px;
+    border: none;
+    color: white;
+    cursor:pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover{
+    background-color: rgb(255, 204, 0);
+
+}
+
+.input{
+    border-radius: 35px;
+    width:280px;
+    height: 25px;
+}
+
+.btnReg{
+    padding-top: 60px;
+}
+
+
+
+
+
+
+
