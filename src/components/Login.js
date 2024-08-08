@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './login.css';
+import './Login.css';
 
 
 const Login = () => {
@@ -21,9 +21,11 @@ const Login = () => {
         if (username && password) {
             const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
             const hashedPassword = btoa(password); 
+            console.log(password)
             const user = storedUsers.find(
                 (user) => user.username === username && user.password === hashedPassword
             );
+            
 
             if (user) {
                 localStorage.setItem('loggedInUser', username);

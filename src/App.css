@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: rgba(146, 148, 143, 0.863);
+  background-color: #131414;
   height: 900px;
   
 }
@@ -10,19 +10,38 @@ input[type="text"] {
   height: 10px;
   font-size: 18px;
   padding: 10px;
-  border: 1px solid #c9c0c0;
+  border: 1px solid #183D3D;
   border-radius: 5px;
 }
 
  .search-btn{
-  width: 100px;
-  height: 30px;
-  font-size: 18px;
-  padding: 10px;
+  width: 80px;
+  height: 25px;
+ 
   border: none;
   margin-left: 10px;
   text-align: center;
-  border-radius: 5px;
-  background-color: rgb(11, 12, 12);
+  border-radius: 10px;
+  background-color: #0C7075;
   color: white;
 }
+
+.Logout-btn{
+  background-color:  #0C7075;
+  color: white;
+  width: 70px;
+  height: 25px;
+  border: none;
+  border-radius: 10px;
+
+}
+
+.search-btn:hover{
+  background-color: #354F52;
+
+}
+.Logout-btn:hover{
+  background-color: #354F52;
+}
+
+

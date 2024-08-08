@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import CurrentWeather from './CurrentWeather';
-import HourlyForecast from './Hourlyforecast';
-import DailyForecast from './Dailyforecast';
+import React, {useState} from 'react';
+import CurrentWeather from '../components/CurrentWeather';
+import Hourlyforecast from '../components/Hourlyforecast';
+import Dailyforecast from '../components/Dailyforecast';
 import './Home.css';
 
 
@@ -31,7 +31,7 @@ const Home = () =>{
     
   return (
     
-      <div className="App">
+      <div className="Home-container">
         
         <h1>Weather Forecast</h1>
         
@@ -43,10 +43,10 @@ const Home = () =>{
         />
         <button className='search-btn' onClick={handleSearch}>Search</button>
         {weatherData && (
-          <div>
+          <div className=''>
             <CurrentWeather weatherData={weatherData} />
-            <HourlyForecast forecastData={ForecastData} />
-            <DailyForecast forecastData={ForecastData} />
+            <Hourlyforecast forecastData={ForecastData} />
+            <Dailyforecast forecastData={ForecastData} />
           </div>
         )}
       </div>

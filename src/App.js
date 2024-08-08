@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Routes, Route ,Link, Navigate} from 'react-rou
 import CurrentWeather from './components/CurrentWeather';
 import HourlyForecast from './components/Hourlyforecast';
 import DailyForecast from './components/Dailyforecast';
-import Landingpage from './components/pages/Landingpage';
-import Home from './components/pages/Home';
+import Landingpage from './pages/Landingpage.js';
+import Home from './pages/Home.js';
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 
@@ -20,6 +20,7 @@ function App() {
     const loggedInUser = localStorage.getItem('loggedInUser');
     if (loggedInUser) {
       setIsAuthenticated(true);
+      console.log(loggedInUser)
     }
   }, []);
 
@@ -38,7 +39,7 @@ function App() {
             <li><Link to="/Signup">Sign Up</Link></li>
             <li><Link to="/Login">Login</Link></li>
             <li><Link to="/Home">Home</Link></li>
-            <li><button onClick={handleLogout}>Logout</button></li>
+            <li><button className= 'Logout-btn'onClick={handleLogout}>Logout</button></li>
             
           </ul>
         </nav>

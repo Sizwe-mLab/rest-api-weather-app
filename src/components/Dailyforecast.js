@@ -10,6 +10,7 @@ const Dailyforecast = ({ forecast }) => {
 
   return (
     <div>
+      <h2>Daily Forecast</h2>
       {slicedForecast.map((item, index) => (
         <div key={index}>
           <h2>{new Date(item.dt * 1000).toLocaleDateString()}</h2>

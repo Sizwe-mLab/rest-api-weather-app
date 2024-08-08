@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './signup.css';
+import './Signup.css';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -9,7 +9,6 @@ const Register = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    //const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState(null);
     
 
