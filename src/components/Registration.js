@@ -50,10 +50,6 @@ const Registration = () => {
         }
     };
 
-
-
-
-
     return (
         <div className="Reg1">
             <br></br>

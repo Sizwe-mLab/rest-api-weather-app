@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState,} from 'react';
+import { useNavigate } from "react-router-dom";
+
 import './Weather.css';
 import search_icon from '../assests/search.png';
 import sunny from '../assests/sunny-weather.jpg';
@@ -6,6 +8,7 @@ import humidity from '../assests/humidity.png';
 import wind from '../assests/wind.png';
 
 const WeatherScr = () => {
+  const navigate = useNavigate();
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState('Pretoria');
 
@@ -19,6 +22,7 @@ const WeatherScr = () => {
 
     try {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${appId}&units=metric`);
+
       const data = await response.json();
       if (response.ok) {
         setWeatherData(data);
@@ -34,6 +38,10 @@ const WeatherScr = () => {
   useEffect(() => {
     search(city);
   }, [city]);
+
+  const handleSubmit = () =>{
+    navigate ("/Weekly")
+  }
 
   return (
     <div className="weather">
@@ -66,6 +74,14 @@ const WeatherScr = () => {
           </div>
         </div>
       </div>
+
+
+
+    <div>
+
+      <button className='btn' onClick={handleSubmit}>Weekly Data</button>
+    </div>
+
     </div>
   );
 };
