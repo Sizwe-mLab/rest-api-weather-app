@@ -6,6 +6,7 @@ import WeatherScr from './components/WeatherScr';
 import Registration from './components/Registration';
 import Weekly from './components/Weekly';
 import { createContext , useState } from 'react';
+import ButtonComponent from './components/ButtonComponent';
 
 export const AuthContext = createContext();
 
@@ -24,9 +25,10 @@ function App() {
                 <Routes>
                 <Route index element={<Registration />} />
                     <Route path="/login" element={<LogIn />} />
+                    <Route path="/WeatherScr" element={<PrivateRoute element={<WeatherScr />} />} />
                     <Route path='Weekly' element={<Weekly />} />
                     <Route path="/registration" element={<Registration />} />
-                    <Route path="/WeatherSrc" element={<PrivateRoute element={<WeatherScr />} />} />
+                    <Route path='/ButtonComponent' element={<ButtonComponent />} />
                 </Routes>
             </BrowserRouter>
             </AuthContext.Provider>

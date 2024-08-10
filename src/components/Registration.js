@@ -41,10 +41,9 @@ const Registration = () => {
 
     const handleSubmit = () => {
         if (validateForm()) {
-          
-            let users =JSON.parse(localStorage.getItem('users')) || [];
+            let users = JSON.parse(localStorage.getItem('users')) || [];
             users.push(formData);
-            console.log("users to be stored:",users);
+            console.log("Users to be stored:", users);
             localStorage.setItem('users', JSON.stringify(users));
             navigate('/LogIn');
         }
@@ -52,10 +51,7 @@ const Registration = () => {
 
     return (
         <div className="Reg1">
-            <br></br>
-            <br></br>
             <h1>Register For A New Account</h1>
-            <br></br>
             <div>
                 <p>Name And Surname</p>
                 <input
@@ -67,7 +63,7 @@ const Registration = () => {
                 />
                 {errors.name && <p className="error">{errors.name}</p>}
 
-                <p>UserName</p>
+                <p>Username</p>
                 <input
                     className='input'
                     type="text"
@@ -77,7 +73,7 @@ const Registration = () => {
                 />
                 {errors.username && <p className="error">{errors.username}</p>}
 
-                <p>PassWord</p>
+                <p>Password</p>
                 <input
                     className='input'
                     type="password"
@@ -87,7 +83,7 @@ const Registration = () => {
                 />
                 {errors.password && <p className="error">{errors.password}</p>}
 
-                <p>Re-Enter PassWord</p>
+                <p>Re-Enter Password</p>
                 <input
                     className='input'
                     type="password"
@@ -98,12 +94,8 @@ const Registration = () => {
                 {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
 
                 <div className='btnReg'>
-                    
-                    <button className='btn' onClick={handleSubmit}>Register</button> <hr></hr>
-
+                    <button className='btn' onClick={handleSubmit}>Register</button>
                 </div>
-
-
             </div>
         </div>
     );

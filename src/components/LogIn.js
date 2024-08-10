@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './LogIn.css';
 import { useNavigate } from "react-router-dom";
-import {AuthContext} from '../App';
-import { useContext } from 'react';
-
-
-
+import { AuthContext } from '../App';
 
 const LogIn = () => {
     const navigate = useNavigate();
-    const {setAuth} = useContext(AuthContext);
+    const { setAuth } = useContext(AuthContext);
     const [formData, setFormData] = useState({
         username: '',
         password: ''
@@ -26,60 +22,42 @@ const LogIn = () => {
     };
 
     const validateForm = () => {
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        let user = users.find(u => u.username === formData.username);
 
-        let user = JSON.parse(localStorage.getItem('users')) || [];
-        let userpassword = user[0].password;
-        let userName = user[0].username;
         let errors = {};
-
-
 
         if (!formData.username) {
             errors.username = "Username is required";
-        }else if(formData.username !== userName ){
-            errors.username="User not found";
-        } 
+        } else if (!user) {
+            errors.username = "User not found";
+        }
 
         if (!formData.password) {
             errors.password = "Password is required";
-        }else if(formData.password !== userpassword){
-            errors.password = "Wrong Password ";
+        } else if (user && formData.password !== user.password) {
+            errors.password = "Wrong password";
         }
-        
 
         setErrors(errors);
-        return( Object.keys(errors).length === 0) 
-
+        return Object.keys(errors).length === 0;
     };
 
     const handleSubmit = () => {
         if (validateForm()) {
-            let users =JSON.parse(localStorage.getItem('user')) || [];
-            users.push(formData);
-            console.log("localStorage user:", users);
-            const user = users.find(u => u.username === formData.username && u.password);
-            console.log("user found,user");
-            if(user) {
-                setAuth(formData.username);
-                localStorage.setItem('auth',formData.username);
-                navigate('/WeatherScr');
-            }else{
-                setErrors({general:"Invalied Username or Password"});
-            }
-           
-        }else{
+            setAuth(formData.username);
+            localStorage.setItem('auth', formData.username);
+            navigate('/WeatherScr');
+        } else {
             console.log("Form did not validate");
         }
     };
 
- 
-
     return (
         <div className="heading">
             <h1>Hello, Please Log In For Easy Access</h1>
-            <br />
             <div>
-                <p>UserName</p>
+                <p>Username</p>
                 <input
                     className='input'
                     type="text"
@@ -89,7 +67,7 @@ const LogIn = () => {
                 />
                 {errors.username && <p className="error">{errors.username}</p>}
 
-                <p>PassWord</p>
+                <p>Password</p>
                 <input
                     className='input'
                     type="password"
@@ -101,14 +79,11 @@ const LogIn = () => {
                 {errors.general && <p className='error'>{errors.general}</p>}
 
                 <div className='buttons'>
-
-                    <button className='btn' onClick={handleSubmit}>Log In</button> <hr></hr>
+                    <button className='btn' onClick={handleSubmit}>Log In</button>
                 </div>
-                
-
             </div>
         </div>
     );
-}
+};
 
 export default LogIn;

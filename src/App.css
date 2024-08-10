@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.Main-Body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: blue;
+
+}
+
+.swt-btn{
+  position: relative;
+  width: 200px;
+  height: 60px;
+  background: yellow;
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: antiquewhite;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border-top: 0.5px solid blueviolet;
+  border-left: 0.5px solid burlywood;
+  padding-left: 40px;
+  transition: 0.9s;
+}
+
+.swt-btn:hover{
+  padding-left: 0px ;
+  padding-right: 40px;
+  color: pink ;
+}
+

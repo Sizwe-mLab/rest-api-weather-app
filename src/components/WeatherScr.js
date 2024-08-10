@@ -1,6 +1,5 @@
 import { useEffect, useState,} from 'react';
 import { useNavigate } from "react-router-dom";
-
 import './Weather.css';
 import search_icon from '../assests/search.png';
 import sunny from '../assests/sunny-weather.jpg';
@@ -10,7 +9,10 @@ import wind from '../assests/wind.png';
 const WeatherScr = () => {
   const navigate = useNavigate();
   const [weatherData, setWeatherData] = useState(null);
+  const [ForecastData, setForecastData] = useState([]);
   const [city, setCity] = useState('Pretoria');
+
+
 
   const search = async (location) => {
     const appId = "a0580ecd47ebbb66a743ce57ba2ee19f";
@@ -22,25 +24,41 @@ const WeatherScr = () => {
 
     try {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${appId}&units=metric`);
-
       const data = await response.json();
+
       if (response.ok) {
         setWeatherData(data);
         console.log('API response:', data);
       } else {
         console.error('API error:', data.message);
       }
+
+      const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${appId}&units=metric`);
+      const forecastData = await forecastResponse.json();
+      if (forecastResponse.ok){
+        setForecastData(forecastData);
+        console.log('API respond:', forecastData);
+      }else {
+            console.error('Forecast API error:', forecastData);
+        }
+
+
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
+
+
+
   };
 
   useEffect(() => {
+    console.log("Component rendering, initiating search for:", city);
     search(city);
+    console.log("Forecast data:",ForecastData);
   }, [city]);
 
   const handleSubmit = () =>{
-    navigate ("/Weekly")
+    navigate('/Weekly', { state: { forecastData: ForecastData } });
   }
 
   return (
@@ -57,6 +75,9 @@ const WeatherScr = () => {
       </div>
       <img src={sunny} alt="sunny weather" className='weather-icon' />
       <p className='temperature'>{weatherData ? `${weatherData.main.temp}°C` : 'N/A'}</p>
+      
+        <button className="swt-btn">°C / K</button>
+      
       <p className='location'>{city}</p>
       <div className='weather-data'>
         <div className='col'>
