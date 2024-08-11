@@ -23,7 +23,7 @@ const Home = () =>{
       .then(response => response.json())
       .then(data => setWeatherData(data));
 
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${Location}&units=metric&appid=b1e1d660348fd1a49f685e5d062e6269`)
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${Location}&units=metric&appid=b1e1d660348fd1a49f685e5d062e6269`)
       .then(response => response.json())
       .then(data => setForecastData(data));
   };

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Login.css';
-
+import bcrypt from 'bcryptjs';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -8,24 +8,18 @@ const Login = () => {
     const [error, setError] = useState('');
 
     
-    useEffect(() => {
-        const loggedInUser = localStorage.getItem('loggedInUser');
-        if (loggedInUser) {
-            alert('You are already logged in');
-            window.location.href = '/home'; 
-        }
-    }, []);
-
+   
     const handleSubmit = (e) => {
         e.preventDefault();
         if (username && password) {
-            const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-            const hashedPassword = btoa(password); 
-            console.log(password)
-            const user = storedUsers.find(
-                (user) => user.username === username && user.password === hashedPassword
-            );
-            
+          const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+          const hashedPassword = bcrypt.hashSync(password, 10);
+          console.log(password)
+          const user = storedUsers.find(
+            (user) => user.username === username && bcrypt.compareSync(password, user.password)
+          );
+
+
 
             if (user) {
                 localStorage.setItem('loggedInUser', username);
@@ -44,14 +38,14 @@ const Login = () => {
         <div className='login-container'>
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-                <label>Username:</label>
+                <label className='username'>Username:</label>
                 <input 
                     type="text" 
                     value={username} 
                     onChange={(e) => setUsername(e.target.value)}  
                 />
                 <br />
-                <label>Password:</label>
+                <label className='password'>Password:</label>
                 <input 
                     type="password" 
                     value={password} 

@@ -46,7 +46,6 @@ function App() {
       )}
         <Routes>
           <Route path="/" element={isAuthenticated ? <Navigate to="/Home" /> : <Landingpage />} />
-            
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Home" element={isAuthenticated ? <Home /> : <Navigate to="/" />} />

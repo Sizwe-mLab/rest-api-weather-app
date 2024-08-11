@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Signup.css';
 import { useNavigate } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
 
 
 const Register = () => {
@@ -11,40 +12,44 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if (username && password) {
-            const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-            const existingUser = storedUsers.find(user => user.username === username);
-
-            if (existingUser) {
-                setError('Username already exists');
-            } else {
-                const hashedPassword = btoa(password); 
+          const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+          const existingUser = storedUsers.find((user) => user.username === username);
+      
+          if (existingUser) {
+            setError('Username already exists');
+          } else {
+            bcrypt.hash(password, 10, (err, hashedPassword) => {
+              if (err) {
+                setError('Error hashing password');
+              } else {
                 storedUsers.push({ username, password: hashedPassword });
                 localStorage.setItem('users', JSON.stringify(storedUsers));
                 alert('Registration Successful');
                 setError('');
                 navigate('/login');
-            }
+              }
+            });
+          }
         } else {
-            setError('Please enter both username and password');
+          setError('Please enter both username and password');
         }
-    };
+      };
 
     return (
         <div className='register-container'>
             <h2>Signup</h2>
             <form onSubmit={handleSubmit}>
-                <label>Username:</label>
+                <label className='username'>Username:</label>
                 <input 
                     type="text" 
                     value={username} 
                     onChange={(e) => setUsername(e.target.value)}  
                 />
                 <br />
-                <label>Password:</label>
+                <label className='password'>Password:</label>
                 <input 
                     type="password" 
                     value={password} 

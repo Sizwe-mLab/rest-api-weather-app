@@ -7,3 +7,15 @@
     width: 70px;
     margin-top: 10px;
 }
+
+.signup-btn:hover{
+    background-color: #32aab8;
+}
+
+.username{
+    color: white;
+}
+
+.password{
+    color: white;
+}

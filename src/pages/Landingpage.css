@@ -14,3 +14,7 @@ h1{
 p{
     color: white;
 }
+
+.Landing-btn:hover{
+    background-color: #32aab8;
+}

@@ -7,5 +7,15 @@
     margin-top: 10px;
     border-radius: 10px;
     border: none;
+}
 
+.login-btn:hover{
+    background-color: #32aab8;
+}
+.username{
+    color: white;
+}
+
+.password{
+    color: white;
 }
