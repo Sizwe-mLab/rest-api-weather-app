@@ -28,6 +28,24 @@ const Home = () =>{
       .then(data => setForecastData(data));
   };
 
+  const handleDetectLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+
+        fetch(`${api.base}weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${api.key}`)
+          .then((response) => response.json())
+          .then((data) => setWeatherData(data));
+
+        fetch(`${api.base}forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${api.key}`)
+          .then((response) => response.json())
+          .then((data) => setForecastData(data));
+      });
+    } else {
+      alert('Geolocation is not supported by this browser.');
+    }
+  };
+
     
   return (
     
@@ -42,6 +60,7 @@ const Home = () =>{
           placeholder="Enter your location"
         />
         <button className='search-btn' onClick={handleSearch}>Search</button>
+        <button className="detect-btn" onClick={handleDetectLocation}> Detect My Location</button>
         {weatherData && (
           <div className=''>
             <CurrentWeather weatherData={weatherData} />
