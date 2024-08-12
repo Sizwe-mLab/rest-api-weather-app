@@ -4,7 +4,7 @@ const ButtonComponent = () => {
   return (
     <div className="Main-Body">
       <div>
-        <button className="swt-btn">°C / K</button>
+        <button className="swt-btn">Switch</button>
       </div>
     </div>
   );

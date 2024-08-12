@@ -46,25 +46,28 @@ h1 {
 }
 
 .weather-icon {
-  width: 100px;
-  margin-top: 20px;
+  width: 150px;
+  margin-top: 10px;
+  border-radius: 8px;
 }
 
 .temperature {
   font-size: 48px;
-  margin: 20px 0;
+  margin: 10px 0;
   font-weight: bold;
 }
 
 .location {
   font-size: 20px;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .weather-data {
   display: flex;
   justify-content: space-around;
   margin: 20px 0;
+  font-size: larger;
 }
 
 .weather-data .col {
@@ -102,5 +105,5 @@ h1 {
 }
 
 .btn:hover {
-  background-color: #c70039;
+  background-color: #00c72b;
 }

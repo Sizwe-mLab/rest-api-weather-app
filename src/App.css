@@ -1,5 +1,8 @@
+
+
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -41,16 +44,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: blue;
 
 }
 
 .swt-btn{
   position: relative;
-  width: 200px;
-  height: 60px;
-  background: yellow;
+  width: 100px;
+  height: 20px;
+  background: rgba(240, 230, 230, 0.1);
   border-radius: 60px;
   display: flex;
   justify-content: center;

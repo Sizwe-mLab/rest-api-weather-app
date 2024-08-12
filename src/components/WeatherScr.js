@@ -11,7 +11,7 @@ const WeatherScr = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [ForecastData, setForecastData] = useState([]);
   const [city, setCity] = useState('Pretoria');
-
+  const [isCelsius, setIsCelsius] = useState(true);
 
 
   const search = async (location) => {
@@ -61,9 +61,16 @@ const WeatherScr = () => {
     navigate('/Weekly', { state: { forecastData: ForecastData } });
   }
 
+  const toggleTemperatureUnit = () => {
+    setIsCelsius(!isCelsius);
+  };
+
+  const convertToFahrenheit = (tempCelsius) => {
+    return (tempCelsius * 9/5) + 32;
+  };
+
   return (
     <div className="weather">
-      <h1>Weather Application</h1>
       <div className="search-bar">
         <input
           type="text"
@@ -73,11 +80,27 @@ const WeatherScr = () => {
         />
         <img className='search' src={search_icon} alt="search icon" onClick={() => search(city)} />
       </div>
+
+
       <img src={sunny} alt="sunny weather" className='weather-icon' />
-      <p className='temperature'>{weatherData ? `${weatherData.main.temp}°C` : 'N/A'}</p>
+
+
+      <p className='temperature'> {weatherData ? 
+          `${isCelsius ? weatherData.main.temp : convertToFahrenheit(weatherData.main.temp)}°${isCelsius ? 'C' : 'F'}` 
+          : 'N/A'}
+
+          </p>
+
+     
       
-        <button className="swt-btn">°C / K</button>
+      <div className="Main-Body">
+      <div>
+        <button className="swt-btn" onClick={toggleTemperatureUnit} onMouseEnter={toggleTemperatureUnit}onMouseLeave={toggleTemperatureUnit}>Switch</button>
+      </div>
+    </div>
       
+
+
       <p className='location'>{city}</p>
       <div className='weather-data'>
         <div className='col'>
@@ -100,7 +123,7 @@ const WeatherScr = () => {
 
     <div>
 
-      <button className='btn' onClick={handleSubmit}>Weekly Data</button>
+      <button className='btn' onClick={handleSubmit}>Weekly</button>
     </div>
 
     </div>
