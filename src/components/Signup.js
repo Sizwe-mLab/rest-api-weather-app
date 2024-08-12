@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Signup.css';
 import { useNavigate } from 'react-router-dom';
 import bcrypt from 'bcryptjs';
+import { Link} from 'react-router-dom';
 
 
 const Register = () => {
@@ -59,6 +60,8 @@ const Register = () => {
                 {error && <p className='error'>{error}</p>}
                 <div className="signup-btnn">
                     <button className="signup-btn" type="submit">Signup</button>
+                    <p><Link to="/login">Login</Link></p>
+                    
                 </div>
             </form>
         </div>

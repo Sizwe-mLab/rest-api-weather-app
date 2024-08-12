@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import bcrypt from 'bcryptjs';
+import { Link} from 'react-router-dom';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -55,6 +56,7 @@ const Login = () => {
                 {error && <p className='error'>{error}</p>}
                 <div className="login-btnn">
                     <button className="login-btn" type="submit">Login</button>
+                    <p><Link to="/signup">Signup</Link></p>
                 </div>
             </form>
         </div>

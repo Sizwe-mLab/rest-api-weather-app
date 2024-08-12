@@ -3,7 +3,7 @@
     color: white;
     border: none;
     border-radius: 10px;
-    height: 25px;
+    height: 35px;
     width: 70px;
     margin-top: 10px;
 }
@@ -19,3 +19,29 @@
 .password{
     color: white;
 }
+
+.login-btn{
+    color: white;
+    background-color: #0C7075;
+    margin-left: 20px;
+    height: 35px;
+    width: 70px;
+}
+ .login-btn:hover{
+    background-color: #32aab8;
+ }
+
+ .register-container{
+    text-align: center;
+    margin-top: 10px;
+    background-color:  rgba(133, 160, 160, 0.6);; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }

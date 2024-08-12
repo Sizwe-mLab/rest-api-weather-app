@@ -33,12 +33,11 @@ function App() {
   return (
     <Router>
       <div className="App">
+      
       {isAuthenticated && (
         <nav>
           <ul className='nav-menu'>
-            <li><Link to="/Signup">Sign Up</Link></li>
-            <li><Link to="/Login">Login</Link></li>
-            <li><Link to="/Home">Home</Link></li>
+            <li><Link  className='home'to="/Home">Home</Link></li>
             <li><button className= 'Logout-btn'onClick={handleLogout}>Logout</button></li>
             
           </ul>

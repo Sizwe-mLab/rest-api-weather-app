@@ -1,11 +1,11 @@
 .Landing-btn{
-    background-color: #0C7075;
+    background-color: #0d6569;
     color: white;
     margin-left: 5px;
     border-radius: 10px;
     border: none;
-    height: 25px;
-    width: 70px
+    height: 40px;
+    width: 90px;
 
 }
 h1{
@@ -17,4 +17,19 @@ p{
 
 .Landing-btn:hover{
     background-color: #32aab8;
+}
+
+.Landingpage-container{
+    text-align: center;
+    margin-top: 10px;
+    background-color:  rgba(133, 160, 160, 0.6);; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
 }
