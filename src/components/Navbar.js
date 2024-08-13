@@ -23,6 +23,9 @@ const Navbar = () => {
           <li className="nav-item">
             <a href="/weekly" className="nav-links">Weekly Forecast</a>
           </li>
+          <li className="nav-item">
+            <a href="/Registration" className="nav-links">LogOut</a>
+          </li>
          
         </ul>
       </div>

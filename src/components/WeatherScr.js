@@ -61,6 +61,10 @@ const WeatherScr = () => {
     navigate('/Weekly', { state: { forecastData: ForecastData } });
   }
 
+  const handleLogout = () =>{
+    navigate ('/Registration')
+  }
+
   const toggleTemperatureUnit = () => {
     setIsCelsius(!isCelsius);
   };
@@ -124,6 +128,7 @@ const WeatherScr = () => {
     <div>
 
       <button className='btn' onClick={handleSubmit}>Weekly</button>
+
     </div>
 
     </div>

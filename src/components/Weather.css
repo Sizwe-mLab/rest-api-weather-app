@@ -3,12 +3,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom right, #00aaff, #00ffaa);
-  color: #ffffff;
+  
 }
 
 .weather {
-  max-width: 400px;
+  /* max-width: 400px; */
   margin: 50px auto;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.1);

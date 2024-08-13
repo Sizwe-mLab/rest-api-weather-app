@@ -49,11 +49,19 @@ const Registration = () => {
         }
     };
 
+    const handleLogin = () =>{
+        navigate ('/LogIn')
+
+    }
+
     return (
-        <div className="Reg1">
+          
+
+                <div className="Reg1">
             <h1>Register For A New Account</h1>
             <div>
                 <p>Name And Surname</p>
+
                 <input
                     className='input'
                     type="text"
@@ -94,10 +102,21 @@ const Registration = () => {
                 {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
 
                 <div className='btnReg'>
-                    <button className='btn' onClick={handleSubmit}>Register</button>
+                    <button className='btn' onClick={handleSubmit}>Register</button> 
+                      <button className='btn'onClick={handleLogin}>Log In</button>
+                     
+                     <p>Already a user Log In? </p> 
+
                 </div>
             </div>
         </div>
+              
+
+
+
+
+
+       
     );
 };
 

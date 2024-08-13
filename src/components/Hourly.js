@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { Navigate, useLocation, useParams } from 'react-router-dom';
 
 const Hourly = () => {
   const { day } = useParams();
@@ -10,10 +10,15 @@ const Hourly = () => {
     return <p>Loading hourly forecast...</p>;
   }
 
+  const handleLogOut = () =>{
+    Navigate ('/')
+
+  }
+  
+
   return (
     <div>
       <h1>Hourly Forecast for {day}</h1>
-      {/* Render hourly forecast data */}
       <table>
         <thead>
           <tr>
@@ -36,6 +41,7 @@ const Hourly = () => {
             </tr>
           ))}
         </tbody>
+
       </table>
     </div>
   );

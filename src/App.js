@@ -9,6 +9,7 @@ import Hourly from "./components/Hourly";
 import { createContext, useState } from "react";
 import ButtonComponent from "./components/ButtonComponent";
 import Navbar from "./components/Navbar";
+import background from "./assests/background.jpg";
 
 export const AuthContext = createContext();
 
@@ -20,8 +21,35 @@ function App() {
   };
 
   return (
+
+
     <AuthContext.Provider value={{ auth, setAuth }}>
-      <Navbar />
+       
+      
+
+
+        <div         
+   
+        
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100vh", 
+          width: "100%",
+          position: "absolute", 
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: -1, 
+        }}
+      ></div>
+
+
+<div style={{ position: "relative", zIndex: 1 }}>
+
+<Navbar />
       <BrowserRouter>
         <Routes>
           <Route index element={<Registration />} />
@@ -40,7 +68,10 @@ function App() {
           <Route path="/ButtonComponent" element={<ButtonComponent />} />
         </Routes>
       </BrowserRouter>
+      </div>
     </AuthContext.Provider>
+
+      
   );
 }
 
