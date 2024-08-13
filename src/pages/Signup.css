@@ -1,0 +1,62 @@
+.signup-btn{
+    background-color:  #453a79;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    height: 35px;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.signup-btn:hover{
+    background-color:  #5f639c;
+}
+
+.username{
+    color: white;
+    
+}
+
+.password{
+    color: white;
+}
+
+.login-btn{
+    color: white;
+    background-color: #0C7075;
+    margin-left: 20px;
+    height: 35px;
+    width: 70px;
+}
+ .login-btn:hover{
+    background-color: #32aab8;
+ }
+
+ .register-container{
+    text-align: center;
+    margin-top: 10px;
+    background-color:  rgba(47, 82, 134, 0.308);; 
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid white;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
+ }
+
+ .login-link{
+    color: white;
+ }
+
+ input[type="text"]{
+    background-color: lightgrey;
+ }
+ input[type='password']{
+    background-color: lightgrey;
+ }
+
+ 

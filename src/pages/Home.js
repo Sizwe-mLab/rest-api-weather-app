@@ -49,10 +49,7 @@ const Home = () =>{
     
   return (
     
-      <div className="Home-container" 
-      
-    >
-        
+      <div className="Home-container" >
         <h1>Weather Forecast</h1>
       <div className='weather'>
         <input
@@ -66,10 +63,21 @@ const Home = () =>{
         <button className="detect-btn" onClick={handleDetectLocation}> Detect My Location</button>
         {weatherData && (
           <div className='data'>
-            <CurrentWeather weatherData={weatherData} />
-            <Hourlyforecast forecastData={ForecastData} />
-            <Dailyforecast forecastData={ForecastData} />
+            <div className='table-t'>
+   
+    <div className='table-data'>
+        <div><CurrentWeather weatherData={weatherData} /></div>
+
+        <div><Hourlyforecast forecastData={ForecastData} /> </div>
+
+        <div><Dailyforecast forecastData={ForecastData} /> </div>
+            
+            
+    </div>
+</div>
+           
           </div>
+          
         )}
       </div>
         

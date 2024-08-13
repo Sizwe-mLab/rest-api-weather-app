@@ -2,13 +2,10 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route ,Link, Navigate} from 'react-router-dom';
-import CurrentWeather from './components/CurrentWeather';
-import HourlyForecast from './components/Hourlyforecast';
-import DailyForecast from './components/Dailyforecast';
 import Landingpage from './pages/Landingpage.js';
 import Home from './pages/Home.js';
-import Login from './components/Login.js';
-import Signup from './components/Signup.js';
+import Login from './pages/Login.js';
+import Signup from './pages/Signup.js';
 
 
  

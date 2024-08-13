@@ -1,30 +1,53 @@
-.Home-container{
-   background-image: url('/src/assets/image/p.jpg');
-   width: 100%;
-   height: 250vh;
-   background-size: contain;
-   background-repeat: no-repeat;
-   
-
+.Home-container,.App {
+  background-image: url("/src/assets/image/p.jpg");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-h2{
-    color: white;
+h2 {
+  color: white;
 }
 
-.detect-btn{
-    color: white;
-    background-color: #0C7075;
-    border: none;
-    border-radius: 10px;
-    margin-left: 10px;
-    height: 25px
+.detect-btn {
+  color: white;
+  background-color: #453a79;
+  border: none;
+  border-radius: 10px;
+  margin-left: 10px;
+  height: 25px;
 }
- .detect-btn:hover{
-    background-color: #32aab8;
- }
- .data{
-    background-color: rgba(92, 90, 90, 0.527);
-   
- }
+.detect-btn:hover {
+  background-color: #5f639c;
+}
+.data {
+  background-color:rgba(47, 82, 134, 0.308);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0;
+  vertical-align: top;
+  margin-top: 10px;
+  justify-content: flex-start;
+  padding: 0 30rem;
+  
+  
+  
+}
+.table-data{
+   display: flex;
+   justify-content: space-around;
+   width :100%;
+
+}
+.loading{
+   color: white;
+
+}
+.table-heading{
+   color: white;
+}
+
+
 

@@ -1,5 +1,5 @@
 .Landing-btn{
-    background-color: #0d6569;
+    background-color: #453a79;
     color: white;
     margin-left: 5px;
     border-radius: 10px;
@@ -16,20 +16,22 @@ p{
 }
 
 .Landing-btn:hover{
-    background-color: #32aab8;
+    background-color: #5f639c;
 }
 
 .Landingpage-container{
     text-align: center;
     margin-top: 10px;
-    background-color:  rgba(133, 160, 160, 0.6);; 
+    border: 2px solid white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
     width: 50%;
+    height: 30%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
    
 }
+

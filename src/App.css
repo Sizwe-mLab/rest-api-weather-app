@@ -1,6 +1,6 @@
-.App {
+ .App {
   text-align: center;
-  background-color: rgb(34, 32, 32);
+  background-color: black;
   height: 900px;
   
    
@@ -8,11 +8,12 @@
 
 input[type="text"] {
   width: 400px;
-  height: 10px;
-  font-size: 18px;
+  height: 5px;
+  font-size: 16px;
   padding: 10px;
   border: 1px solid #183D3D;
   border-radius: 5px;
+  
 }
 
  .search-btn{
@@ -22,12 +23,12 @@ input[type="text"] {
   margin-left: 10px;
   text-align: center;
   border-radius: 10px;
-  background-color: #0C7075;
+  background-color: #453a79;
   color: white;
 }
 
 .Logout-btn{
-  background-color:  #0C7075;
+  background-color:  #453a79;
   color: white;
   width: 70px;
   height: 30px;
@@ -39,16 +40,16 @@ input[type="text"] {
 }
 
 .search-btn:hover{
-  background-color: #32aab8;
+  background-color: #5f639c;
 
 }
 .Logout-btn:hover{
-  background-color: #32aab8;
+  background-color: #5f639c;
 }
 
 .nav-menu a {
   text-decoration: none;
-  color: #0C7075; 
+  color: white; 
   font-size: 16px;
   font-weight: bold;
   padding: 10px 15px;
@@ -70,6 +71,7 @@ input[type="text"] {
   justify-content: flex-end;
   align-items: center;
   
+  
  
 }
 
@@ -87,4 +89,4 @@ input[type="text"] {
 
 
 
-
+ 
