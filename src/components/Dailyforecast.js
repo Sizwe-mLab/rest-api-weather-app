@@ -1,23 +1,28 @@
 import React from 'react';
 
-
 const Dailyforecast = ({ forecastData }) => {
-  
+
   if (!forecastData || !forecastData.list) {
     return <p>No forecast data available.</p>;
   }
-  const slicedForecast = forecastData.list.slice(0, 5);
+
+  const getDayOfWeek = (timestamp) => {
+    const date = new Date(timestamp * 1000);
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return days[date.getDay()];
+  };
 
   return (
-    <div className='dailyforecast'>
+    <div>
       <h2>Daily Forecast</h2>
-      {slicedForecast.map((item, index) => (
-        <div key={index}>
-          <h2>{new Date(item.dt * 1000).toLocaleDateString()}</h2>
-          <p>Temperature: {item.main.temp}°C</p>
-          
-        </div>
-      ))}
+      <ul>
+        {forecastData.list.slice(0, 5).map((item, index) => (
+          <li key={index}>
+            <p>{getDayOfWeek(item.dt)}</p>
+            <p>Temperature: {item.main.temp}°C</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

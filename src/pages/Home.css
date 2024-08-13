@@ -16,7 +16,6 @@ h2 {
   border: none;
   border-radius: 10px;
   margin-left: 10px;
-  height: 25px;
 }
 .detect-btn:hover {
   background-color: #5f639c;
@@ -47,6 +46,34 @@ h2 {
 }
 .table-heading{
    color: white;
+}
+
+
+.Home-container.default {
+  background-image: url('/src/assets/image/p.jpg');
+}
+
+.Home-container.beach {
+  background-image: url('/src/assets/image/0917mb59.jpg');
+}
+
+.Home-container.mountain {
+  background-image: url('/src/assets/image/1173035-cold-weather-wallpaper-1920x1200-1080p.jpg');
+}
+
+.theme-selector {
+  margin-top: 10px;
+}
+
+.theme-selector button {
+  margin-right: 5px;
+}
+
+.unit-selector{
+  border-radius: 10px;
+  margin-left: 10px;
+  background-color: #453a79;
+  color: white;
 }
 
 
